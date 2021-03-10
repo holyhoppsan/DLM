@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dlm/vector2.hpp"
+#include "dlm/vector3.hpp"
 
 namespace dlm {
 namespace vector {
@@ -22,7 +23,11 @@ typename vector_type::ValueType Dot(const vector_type& v1,
   return v1 | v2;
 }
 
-// TODO add cross product for Vector 3
+template <typename T>
+Vector3<T> Cross(const Vector3<T>& v1, const Vector3<T> v2) {
+  return {v1.y * v2.z - v2.y * v1.z, v1.z * v2.x - v2.z * v1.x,
+          v1.x * v2.y - v2.x * v1.y};
+}
 
 template <typename T>
 T Distance(const Vector2<T>& v1, const Vector2<T> v2) {

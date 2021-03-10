@@ -4,6 +4,7 @@
 
 #include "dlm/geometricfunctions.hpp"
 #include "dlm/vector2.hpp"
+#include "dlm/vector3.hpp"
 
 class GeometricFunctionsTest : public ::testing::Test {
  protected:
@@ -19,7 +20,24 @@ TEST_F(GeometricFunctionsTest, normalize_return_vector2_with_length_one) {
   ASSERT_EQ(dlm::vector::Length(normalized), 1.0f);
 }
 
-TEST_F(GeometricFunctionsTest, dot_positive) {
+TEST_F(GeometricFunctionsTest, normalize_return_vector3_with_length_one) {
+  dlm::vector::Vector3F new_vector{2.0f, 3.0f, 4.0f};
+
+  const auto normalized = dlm::vector::Normalize(new_vector);
+  ASSERT_EQ(dlm::vector::Length(normalized), 1.0f);
+}
+
+TEST_F(GeometricFunctionsTest, cross) {
+  dlm::vector::Vector3F v1{0.0f, 0.0f, 1.0f};
+  dlm::vector::Vector3F v2{1.0f, 0.0f, 1.0f};
+
+  const auto cross = dlm::vector::Cross(v1, v2);
+  ASSERT_EQ(cross.x, 0.0f);
+  ASSERT_EQ(cross.y, 1.0f);
+  ASSERT_EQ(cross.z, 0.0f);
+}
+
+TEST_F(GeometricFunctionsTest, dot_vec2_positive) {
   dlm::vector::Vector2F new_vector{3.0f, 4.0f};
   auto result = dlm::vector::Dot(new_vector, new_vector);
 
