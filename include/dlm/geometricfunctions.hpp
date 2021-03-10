@@ -17,7 +17,8 @@ typename vector_type::ValueType Length(const vector_type& v1) {
 }
 
 template <typename vector_type>
-vector_type Dot(const vector_type& v1, const vector_type& v2) {
+typename vector_type::ValueType Dot(const vector_type& v1,
+                                    const vector_type& v2) {
   return v1 | v2;
 }
 
@@ -38,7 +39,8 @@ T DistanceSquared(const Vector2<T>& v1, const Vector2<T> v2) {
 template <typename vector_type>
 vector_type Reflect(const vector_type& v, const vector_type& n) {
   const auto normalized = Normalize(n);
-  return 2(normalized | v) - v;
+  const auto projected = n * (normalized | v);
+  return (projected * 2.0f) - v;
 }
 
 template <typename vector_type>
