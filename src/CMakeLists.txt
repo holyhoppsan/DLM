@@ -4,8 +4,12 @@ if(${CMAKE_VERSION} VERSION_LESS 3.12)
     cmake_policy(VERSION &{CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 endif()
 
-add_library(dlm STATIC vector.cpp)
-                       
-target_compile_features(dlm PUBLIC cxx_std_17)
+# file(GLOB dlm_source_files
+#     "*.cpp"
+# )
 
-target_include_directories(dlm PUBLIC ${CMAKE_SOURCE_DIR}/include/dlm)
+add_library(dlm INTERFACE)
+                       
+target_compile_features(dlm INTERFACE cxx_std_17)
+
+target_include_directories(dlm INTERFACE ${CMAKE_SOURCE_DIR}/include)
