@@ -16,7 +16,7 @@ TEST_F(Vector2Test, zero_set_elements_to_zero) {
 
   new_vector.Zero();
   ASSERT_EQ(new_vector.x, -0.0f);
-  ASSERT_EQ(new_vector.x, -0.0f);
+  ASSERT_EQ(new_vector.y, -0.0f);
 }
 
 TEST_F(Vector2Test, unary_minus) {
@@ -24,7 +24,7 @@ TEST_F(Vector2Test, unary_minus) {
   const dlm::vector::Vector2F negated_vector = -new_vector;
 
   ASSERT_EQ(negated_vector.x, -2.0f);
-  ASSERT_EQ(negated_vector.x, -2.0f);
+  ASSERT_EQ(negated_vector.y, -2.0f);
 }
 
 TEST_F(Vector2Test, minus_scalar) {
@@ -32,7 +32,7 @@ TEST_F(Vector2Test, minus_scalar) {
   const dlm::vector::Vector2F negated_vector = new_vector - 2.0f;
 
   ASSERT_EQ(negated_vector.x, 0.0f);
-  ASSERT_EQ(negated_vector.x, 0.0f);
+  ASSERT_EQ(negated_vector.y, 0.0f);
 }
 
 TEST_F(Vector2Test, minus_vector) {
@@ -40,7 +40,7 @@ TEST_F(Vector2Test, minus_vector) {
   const dlm::vector::Vector2F negated_vector = new_vector - new_vector;
 
   ASSERT_EQ(negated_vector.x, 0.0f);
-  ASSERT_EQ(negated_vector.x, 0.0f);
+  ASSERT_EQ(negated_vector.y, 0.0f);
 }
 
 TEST_F(Vector2Test, minus_scalar_assign) {
@@ -48,7 +48,7 @@ TEST_F(Vector2Test, minus_scalar_assign) {
   new_vector -= 2.0f;
 
   ASSERT_EQ(new_vector.x, 0.0f);
-  ASSERT_EQ(new_vector.x, 0.0f);
+  ASSERT_EQ(new_vector.y, 0.0f);
 }
 
 TEST_F(Vector2Test, minus_vector_assign) {
@@ -64,7 +64,7 @@ TEST_F(Vector2Test, add_scalar) {
   new_vector = new_vector + 2.0f;
 
   ASSERT_EQ(new_vector.x, 4.0f);
-  ASSERT_EQ(new_vector.x, 4.0f);
+  ASSERT_EQ(new_vector.y, 4.0f);
 }
 
 TEST_F(Vector2Test, add_vector) {
@@ -72,7 +72,7 @@ TEST_F(Vector2Test, add_vector) {
   new_vector = new_vector + new_vector;
 
   ASSERT_EQ(new_vector.x, 4.0f);
-  ASSERT_EQ(new_vector.x, 4.0f);
+  ASSERT_EQ(new_vector.y, 4.0f);
 }
 
 TEST_F(Vector2Test, add_scalar_assign) {
@@ -80,7 +80,7 @@ TEST_F(Vector2Test, add_scalar_assign) {
   new_vector += 2.0f;
 
   ASSERT_EQ(new_vector.x, 4.0f);
-  ASSERT_EQ(new_vector.x, 4.0f);
+  ASSERT_EQ(new_vector.y, 4.0f);
 }
 
 TEST_F(Vector2Test, add_vector_assign) {
@@ -88,7 +88,7 @@ TEST_F(Vector2Test, add_vector_assign) {
   new_vector += new_vector;
 
   ASSERT_EQ(new_vector.x, 4.0f);
-  ASSERT_EQ(new_vector.x, 4.0f);
+  ASSERT_EQ(new_vector.y, 4.0f);
 }
 
 TEST_F(Vector2Test, mul_scalar) {
@@ -96,7 +96,7 @@ TEST_F(Vector2Test, mul_scalar) {
   const dlm::vector::Vector2F negated_vector = new_vector * 2.0f;
 
   ASSERT_EQ(negated_vector.x, 4.0f);
-  ASSERT_EQ(negated_vector.x, 4.0f);
+  ASSERT_EQ(negated_vector.y, 4.0f);
 }
 
 TEST_F(Vector2Test, mul_vector) {
@@ -104,7 +104,7 @@ TEST_F(Vector2Test, mul_vector) {
   const dlm::vector::Vector2F negated_vector = new_vector * new_vector;
 
   ASSERT_EQ(negated_vector.x, 4.0f);
-  ASSERT_EQ(negated_vector.x, 4.0f);
+  ASSERT_EQ(negated_vector.y, 4.0f);
 }
 
 TEST_F(Vector2Test, mul_scalar_assign) {
@@ -112,7 +112,7 @@ TEST_F(Vector2Test, mul_scalar_assign) {
   new_vector *= 2.0f;
 
   ASSERT_EQ(new_vector.x, 4.0f);
-  ASSERT_EQ(new_vector.x, 4.0f);
+  ASSERT_EQ(new_vector.y, 4.0f);
 }
 
 TEST_F(Vector2Test, mul_vector_assign) {
@@ -120,7 +120,7 @@ TEST_F(Vector2Test, mul_vector_assign) {
   new_vector *= new_vector;
 
   ASSERT_EQ(new_vector.x, 4.0f);
-  ASSERT_EQ(new_vector.x, 4.0f);
+  ASSERT_EQ(new_vector.y, 4.0f);
 }
 
 TEST_F(Vector2Test, div_scalar) {
@@ -128,7 +128,7 @@ TEST_F(Vector2Test, div_scalar) {
   const dlm::vector::Vector2F negated_vector = new_vector / 2.0f;
 
   ASSERT_EQ(negated_vector.x, 1.0f);
-  ASSERT_EQ(negated_vector.x, 1.0f);
+  ASSERT_EQ(negated_vector.y, 1.0f);
 }
 
 TEST_F(Vector2Test, div_vector) {
@@ -136,7 +136,7 @@ TEST_F(Vector2Test, div_vector) {
   const dlm::vector::Vector2F negated_vector = new_vector / new_vector;
 
   ASSERT_EQ(negated_vector.x, 1.0f);
-  ASSERT_EQ(negated_vector.x, 1.0f);
+  ASSERT_EQ(negated_vector.y, 1.0f);
 }
 
 TEST_F(Vector2Test, div_scalar_assign) {
@@ -144,7 +144,7 @@ TEST_F(Vector2Test, div_scalar_assign) {
   new_vector /= 2.0f;
 
   ASSERT_EQ(new_vector.x, 1.0f);
-  ASSERT_EQ(new_vector.x, 1.0f);
+  ASSERT_EQ(new_vector.y, 1.0f);
 }
 
 TEST_F(Vector2Test, div_vector_assign) {

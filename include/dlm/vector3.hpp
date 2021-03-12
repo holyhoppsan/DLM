@@ -41,10 +41,10 @@ struct Vector3 {
   T& operator[](int index);
 
   // dot product
-  Vector3<T> operator^(const Vector3<T>& v) const;
+  T operator|(const Vector3<T>& v) const;
 
   // cross product
-  T operator|(const Vector3<T>& v) const;
+  Vector3<T> operator^(const Vector3<T>& v) const;
 
   bool operator==(const Vector3<T>& v) const;
   bool operator!=(const Vector3<T>& v) const;
@@ -188,6 +188,11 @@ Vector3<T> Vector3<T>::operator/=(const Vector3<T>& v) {
 template <typename T>
 T Vector3<T>::operator|(const Vector3<T>& v) const {
   return x * v.x + y * v.y + z * v.z;
+}
+
+template <typename T>
+Vector3<T> Vector3<T>::operator^(const Vector3<T>& v) const {
+  return {y * v.z - v.y * z, z * v.x - v.z * x, x * v.y - v.x * y};
 }
 
 template <typename T>
