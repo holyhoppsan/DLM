@@ -6,7 +6,7 @@ endif()
 
 enable_testing()
 
-project(Allocators VERSION 1.0 DESCRIPTION "A Maths library" LANGUAGES C CXX)
+project(Dlm VERSION 1.0 DESCRIPTION "A Maths library" LANGUAGES C CXX)
 
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
@@ -33,6 +33,7 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
                  EXCLUDE_FROM_ALL)
 
+add_subdirectory(app)
 add_subdirectory(src)
 add_subdirectory(test)
 
