@@ -9,8 +9,8 @@ struct Vector3 {
   using ValueType = T;
   // Constructors
   Vector3()
-      : x(static_cast<T>(0)), y(static_cast<T>(0)), z(static_cast<T>(0)){};
-  Vector3(T x, T y, T z) : x(x), y(y), z(z){};
+      : x{static_cast<T>(0)}, y{static_cast<T>(0)}, z{static_cast<T>(0)} {};
+  Vector3(T x, T y, T z) : x{x}, y{y}, z{z} {};
 
   // Destructors
   ~Vector3(){};
@@ -305,6 +305,8 @@ T Vector3<T>::LengthSquared() const {
 }
 
 using Vector3F = Vector3<float>;
+
+static_assert(std::is_move_constructible<Vector3F>::value);
 
 }  // namespace vector
 

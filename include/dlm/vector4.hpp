@@ -9,11 +9,11 @@ struct Vector4 {
   using ValueType = T;
   // Constructors
   Vector4()
-      : x(static_cast<T>(0)),
-        y(static_cast<T>(0)),
-        z(static_cast<T>(0)),
-        w(static_cast<T>(0)){};
-  Vector4(T x, T y, T z, T w) : x(x), y(y), z(z), w(w){};
+      : x{static_cast<T>(0)},
+        y{static_cast<T>(0)},
+        z{static_cast<T>(0)},
+        w{static_cast<T>(0)} {};
+  Vector4(T x, T y, T z, T w) : x{x}, y{y}, z{z}, w{w} {};
 
   // Destructors
   ~Vector4(){};
@@ -317,6 +317,8 @@ T Vector4<T>::LengthSquared() const {
 }
 
 using Vector4F = Vector4<float>;
+
+static_assert(std::is_move_constructible<Vector4F>::value);
 
 }  // namespace vector
 

@@ -27,7 +27,7 @@ int main() {
       SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
 
   SDL_Window* window =
-      SDL_CreateWindow("Open GL test example", SDL_WINDOWPOS_CENTERED,
+      SDL_CreateWindow("DLM example app", SDL_WINDOWPOS_CENTERED,
                        SDL_WINDOWPOS_CENTERED, 640, 480, window_flags);
 
   SDL_GLContext gl_context = SDL_GL_CreateContext(window);
@@ -83,8 +83,8 @@ int main() {
       static float f = 0.0f;
       static int counter = 0;
 
-      ImGui::Begin("Hello, world!");  // Create a window called "Hello, world!"
-                                      // and append into it.
+      ImGui::Begin("Examples");  // Create a window called "Hello, world!"
+                                 // and append into it.
 
       ImGui::Text("This is some useful text.");  // Display some text (you can
                                                  // use a format strings too)

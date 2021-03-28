@@ -29,13 +29,13 @@ Vector3<T> Cross(const Vector3<T>& v1, const Vector3<T> v2) {
 }
 
 template <typename T>
-T Distance(const Vector2<T>& v1, const Vector2<T> v2) {
+T Distance(const Vector2<T>& v1, const Vector2<T>& v2) {
   Vector2<T> diff = v1 - v2;
   return diff.Length();
 }
 
 template <typename T>
-T DistanceSquared(const Vector2<T>& v1, const Vector2<T> v2) {
+T DistanceSquared(const Vector2<T>& v1, const Vector2<T>& v2) {
   Vector2<T> diff = v1 - v2;
   return diff.LengthSquared();
 }

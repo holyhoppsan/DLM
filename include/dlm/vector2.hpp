@@ -1,6 +1,8 @@
 #pragma once
 
 #include <cmath>
+#include <iostream>
+#include <type_traits>
 
 namespace dlm {
 namespace vector {
@@ -8,8 +10,9 @@ template <typename T>
 struct Vector2 {
   using ValueType = T;
   // Constructors
-  Vector2() : x(static_cast<T>(0)), y(static_cast<T>(0)){};
-  Vector2(T x, T y) : x(x), y(y){};
+  Vector2() : x{static_cast<T>(0)}, y{static_cast<T>(0)} {};
+
+  Vector2(T x, T y) : x{x}, y{y} {};
 
   // Destructors
   ~Vector2(){};
@@ -18,23 +21,23 @@ struct Vector2 {
   Vector2<T> operator-() const;
   Vector2<T> operator-(T scalar) const;
   Vector2<T> operator-(const Vector2<T>& v) const;
-  Vector2<T> operator-=(T scalar);
-  Vector2<T> operator-=(const Vector2<T>& v);
+  Vector2<T>& operator-=(T scalar);
+  Vector2<T>& operator-=(const Vector2<T>& v);
 
   Vector2<T> operator+(T scalar) const;
   Vector2<T> operator+(const Vector2<T>& v) const;
-  Vector2<T> operator+=(T scalar);
-  Vector2<T> operator+=(const Vector2<T>& v);
+  Vector2<T>& operator+=(T scalar);
+  Vector2<T>& operator+=(const Vector2<T>& v);
 
   Vector2<T> operator*(T scalar) const;
   Vector2<T> operator*(const Vector2<T>& v) const;
-  Vector2<T> operator*=(T scalar);
-  Vector2<T> operator*=(const Vector2<T>& v);
+  Vector2<T>& operator*=(T scalar);
+  Vector2<T>& operator*=(const Vector2<T>& v);
 
   Vector2<T> operator/(T scalar) const;
   Vector2<T> operator/(const Vector2<T>& v) const;
-  Vector2<T> operator/=(T scalar);
-  Vector2<T> operator/=(const Vector2<T>& v);
+  Vector2<T>& operator/=(T scalar);
+  Vector2<T>& operator/=(const Vector2<T>& v);
 
   T operator[](int index) const;
   T& operator[](int index);
@@ -85,14 +88,14 @@ Vector2<T> Vector2<T>::operator-(const Vector2<T>& v) const {
 }
 
 template <typename T>
-Vector2<T> Vector2<T>::operator-=(T scalar) {
+Vector2<T>& Vector2<T>::operator-=(T scalar) {
   x -= scalar;
   y -= scalar;
   return *this;
 }
 
 template <typename T>
-Vector2<T> Vector2<T>::operator-=(const Vector2<T>& v) {
+Vector2<T>& Vector2<T>::operator-=(const Vector2<T>& v) {
   x -= v.x;
   y -= v.y;
   return *this;
@@ -109,14 +112,14 @@ Vector2<T> Vector2<T>::operator+(const Vector2<T>& v) const {
 }
 
 template <typename T>
-Vector2<T> Vector2<T>::operator+=(T scalar) {
+Vector2<T>& Vector2<T>::operator+=(T scalar) {
   x += scalar;
   y += scalar;
   return *this;
 }
 
 template <typename T>
-Vector2<T> Vector2<T>::operator+=(const Vector2<T>& v) {
+Vector2<T>& Vector2<T>::operator+=(const Vector2<T>& v) {
   x += v.x;
   y += v.y;
   return *this;
@@ -133,14 +136,14 @@ Vector2<T> Vector2<T>::operator*(const Vector2<T>& v) const {
 }
 
 template <typename T>
-Vector2<T> Vector2<T>::operator*=(T scalar) {
+Vector2<T>& Vector2<T>::operator*=(T scalar) {
   x *= scalar;
   y *= scalar;
   return *this;
 }
 
 template <typename T>
-Vector2<T> Vector2<T>::operator*=(const Vector2<T>& v) {
+Vector2<T>& Vector2<T>::operator*=(const Vector2<T>& v) {
   x *= v.x;
   y *= v.y;
   return *this;
@@ -159,14 +162,14 @@ Vector2<T> Vector2<T>::operator/(const Vector2<T>& v) const {
 }
 
 template <typename T>
-Vector2<T> Vector2<T>::operator/=(T scalar) {
+Vector2<T>& Vector2<T>::operator/=(T scalar) {
   x /= scalar;
   y /= scalar;
   return *this;
 }
 
 template <typename T>
-Vector2<T> Vector2<T>::operator/=(const Vector2<T>& v) {
+Vector2<T>& Vector2<T>::operator/=(const Vector2<T>& v) {
   x /= v.x;
   y /= v.y;
   return *this;
@@ -277,6 +280,8 @@ T Vector2<T>::LengthSquared() const {
 }
 
 using Vector2F = Vector2<float>;
+
+static_assert(std::is_move_constructible<Vector2F>::value);
 
 }  // namespace vector
 

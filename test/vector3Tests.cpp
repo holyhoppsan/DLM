@@ -20,6 +20,15 @@ TEST_F(Vector3Test, zero_set_elements_to_zero) {
   ASSERT_EQ(new_vector.z, -0.0f);
 }
 
+TEST_F(Vector3Test, movable) {
+  dlm::vector::Vector3F new_vector{2.0f, 3.0f, 4.0f};
+
+  dlm::vector::Vector3F moved_vector(std::move(new_vector));
+  ASSERT_EQ(moved_vector.x, 2.0f);
+  ASSERT_EQ(moved_vector.y, 3.0f);
+  ASSERT_EQ(moved_vector.z, 4.0f);
+}
+
 TEST_F(Vector3Test, unary_minus) {
   const dlm::vector::Vector3F new_vector{2.0f, 2.0f, 2.0f};
   const dlm::vector::Vector3F negated_vector = -new_vector;
