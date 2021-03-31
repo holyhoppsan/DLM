@@ -30,6 +30,7 @@ struct Matrix2x2 {
 
   Matrix2x2<T> operator+(T scalar) const;
   Matrix2x2<T> operator+(const Matrix2x2<T>& other) const;
+  Matrix2x2<T> AddLoop(const Matrix2x2<T>& other) const;
   Matrix2x2<T>& operator+=(T scalar);
   Matrix2x2<T>& operator+=(const Matrix2x2<T>& other);
 
@@ -72,6 +73,16 @@ Matrix2x2<T> Matrix2x2<T>::operator+(T scalar) const {
 template <typename T>
 Matrix2x2<T> Matrix2x2<T>::operator+(const Matrix2x2<T>& other) const {
   return {data[0] + other[0], data[1] + other[1]};
+}
+
+template <typename T>
+Matrix2x2<T> Matrix2x2<T>::AddLoop(const Matrix2x2<T>& other) const {
+  Matrix2x2<T> return_matrix;
+  for (int i = 0; i < 2; i++) {
+    return_matrix.data[i] = data[i] + other[i];
+  }
+
+  return return_matrix;
 }
 
 template <typename T>

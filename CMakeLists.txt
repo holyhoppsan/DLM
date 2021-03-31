@@ -36,5 +36,6 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 add_subdirectory(app)
 add_subdirectory(src)
 add_subdirectory(test)
+add_subdirectory(benchmark)
 
 add_test(NAME unit COMMAND ${CMAKE_BINARY_DIR}/test/unit_tests)
